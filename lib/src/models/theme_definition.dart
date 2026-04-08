@@ -22,8 +22,10 @@ class AppThemeDefinition extends Equatable {
   @override
   List<Object?> get props => [id];
 
-  /// All available themes, sorted by required level.
-  static const List<AppThemeDefinition> all = [
+  // ─── Registry ───────────────────────────────────────────────────────────
+
+  /// Default built-in themes, used when no custom themes are configured.
+  static const List<AppThemeDefinition> defaults = [
     AppThemeDefinition(
       id: 'classic',
       nameKey: 'themeClassic',
@@ -89,7 +91,26 @@ class AppThemeDefinition extends Equatable {
     ),
   ];
 
-  /// Find a theme by id, defaults to classic.
+  static List<AppThemeDefinition>? _custom;
+
+  /// All available themes. Returns custom themes if configured, otherwise defaults.
+  static List<AppThemeDefinition> get all => _custom ?? defaults;
+
+  /// Replace the built-in theme list with a custom one.
+  ///
+  /// Call this before the app starts (e.g. in `main()`).
+  /// The list must contain at least one theme.
+  static void configure(List<AppThemeDefinition> themes) {
+    assert(themes.isNotEmpty, 'At least one theme is required');
+    _custom = List.unmodifiable(themes);
+  }
+
+  /// Reset to built-in defaults.
+  static void resetToDefaults() {
+    _custom = null;
+  }
+
+  /// Find a theme by id, defaults to the first theme.
   static AppThemeDefinition byId(String id) {
     return all.firstWhere((t) => t.id == id, orElse: () => all.first);
   }
