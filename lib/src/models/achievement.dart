@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-enum AchievementCategory { words, streak, quiz, daily }
+enum AchievementCategory { words, streak, quiz, daily, social, voice, flashcard, level }
 
 class Achievement extends Equatable {
   final String id;
@@ -159,5 +159,125 @@ const List<Achievement> kAchievements = [
     icon: '🎯',
     category: AchievementCategory.daily,
     target: 5,
+  ),
+
+  // --- Social Achievements ---
+  Achievement(
+    id: 'social_first_share',
+    title: 'Social Butterfly',
+    description: 'Share your progress for the first time',
+    icon: '📣',
+    category: AchievementCategory.social,
+    target: 1,
+  ),
+  Achievement(
+    id: 'social_share_5',
+    title: 'Influencer',
+    description: 'Share your progress 5 times',
+    icon: '📲',
+    category: AchievementCategory.social,
+    target: 5,
+  ),
+  Achievement(
+    id: 'social_feedback',
+    title: 'Community Helper',
+    description: 'Submit your first feedback',
+    icon: '💬',
+    category: AchievementCategory.social,
+    target: 1,
+  ),
+
+  // --- Voice Achievements ---
+  Achievement(
+    id: 'voice_first_listen',
+    title: 'Listener',
+    description: 'Listen to a word pronunciation for the first time',
+    icon: '🔊',
+    category: AchievementCategory.voice,
+    target: 1,
+  ),
+  Achievement(
+    id: 'voice_listen_50',
+    title: 'Phonetic Fan',
+    description: 'Listen to 50 word pronunciations',
+    icon: '🎙️',
+    category: AchievementCategory.voice,
+    target: 50,
+  ),
+  Achievement(
+    id: 'voice_listen_200',
+    title: 'Sound Scholar',
+    description: 'Listen to 200 word pronunciations',
+    icon: '🎧',
+    category: AchievementCategory.voice,
+    target: 200,
+  ),
+
+  // --- Flashcard Achievements ---
+  Achievement(
+    id: 'flashcard_first',
+    title: 'Card Player',
+    description: 'Review your first flashcard',
+    icon: '🃏',
+    category: AchievementCategory.flashcard,
+    target: 1,
+  ),
+  Achievement(
+    id: 'flashcard_10',
+    title: 'Card Collector',
+    description: 'Review 10 flashcards',
+    icon: '🗃️',
+    category: AchievementCategory.flashcard,
+    target: 10,
+  ),
+  Achievement(
+    id: 'flashcard_100',
+    title: 'Card Master',
+    description: 'Review 100 flashcards',
+    icon: '🎴',
+    category: AchievementCategory.flashcard,
+    target: 100,
+  ),
+  Achievement(
+    id: 'flashcard_500',
+    title: 'Flash Champion',
+    description: 'Review 500 flashcards',
+    icon: '⚡',
+    category: AchievementCategory.flashcard,
+    target: 500,
+  ),
+
+  // --- Level Achievements ---
+  Achievement(
+    id: 'level_5',
+    title: 'Rising Star',
+    description: 'Reach level 5',
+    icon: '⭐',
+    category: AchievementCategory.level,
+    target: 5,
+  ),
+  Achievement(
+    id: 'level_10',
+    title: 'Dedicated Learner',
+    description: 'Reach level 10',
+    icon: '🌟',
+    category: AchievementCategory.level,
+    target: 10,
+  ),
+  Achievement(
+    id: 'level_25',
+    title: 'Expert',
+    description: 'Reach level 25',
+    icon: '🔥',
+    category: AchievementCategory.level,
+    target: 25,
+  ),
+  Achievement(
+    id: 'level_50',
+    title: 'Grandmaster',
+    description: 'Reach level 50',
+    icon: '👑',
+    category: AchievementCategory.level,
+    target: 50,
   ),
 ];
